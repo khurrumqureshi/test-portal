@@ -1,0 +1,23 @@
+{
+  "name": "test-portal",
+  "version": "1.0.0",
+  "description": "its a portal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khurrumqureshi/test-portal.git"
+  },
+  "keywords": [
+    "portal"
+  ],
+  "author": "Khurrum,Ahsan,Saad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khurrumqureshi/test-portal/issues"
+  },
+  "homepage": "https://github.com/khurrumqureshi/test-portal#readme"
+}
