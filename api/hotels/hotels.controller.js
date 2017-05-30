@@ -2,23 +2,22 @@ const mongoose = require('mongoose');
 const Hotels = mongoose.model('hotels');
 const boom = require('boom');
 
-// exports.createHotel = (req, res, next) => {
-
-//     let NewHotel = new Hotels(req.body);
-
-//     NewHotel.save ((err, hotel) => {
-//         if (err) {
-//            next(boom.unauthorized(err.toString()));
-//         }
-
-//         else {
-//             res.json(hotel);
-
-//         }
-//     })};
-
-
 exports.search =(req, res, next) => {
-
-
+    const data = req.query.data;
+    const regex = new RegExp(escapeRegex(data), 'gi');
+    
+    Hotels.find({name: regex},(err,data)=>{
+        if(err) {
+        next(boom.forbidden('No place Found'));}
+        else
+        res.send(data);
+    })
+    
 }
+
+function escapeRegex(text) {
+    return text.replace(/^([a-zA-Z]){2}([a-zA-Z])+$/g,  "\\$&");
+};
+
+
+///^([a-zA-Z]){2}([a-zA-Z])+$/g
