@@ -5,9 +5,17 @@ const mongoose = require('mongoose');
 const port = 5000;
 const airports = require('./api/airports/airports.model');
 const hotels = require('./api/hotels/hotels.model');
-
+const gulp = require('gulp');
+const nodemon = require('gulp-nodemon');
 mongoose.Promise = require('bluebird');
 
+gulp.task('start', function () {
+  nodemon({
+    script: 'index.js'
+  , ext: 'js html'
+  , env: { 'NODE_ENV': 'development' }
+  })
+})
 //Connect to mongodb
 mongoose.connect('mongodb://localhost/TP-DB')
 //connection and error checking

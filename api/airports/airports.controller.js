@@ -18,7 +18,7 @@ exports.search = (req, res, next) => {
 
                     return next(boom.badImplementation("no such airport with keyword " + search + " found"));
                 }
-                
+    
                 res.send(doc);
                
             })
