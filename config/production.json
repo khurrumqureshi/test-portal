@@ -1,0 +1,7 @@
+{
+  "Customer": {
+    "mongo": {
+      "host": "mongodb://localhost/TP-DB"
+    }
+  }
+}

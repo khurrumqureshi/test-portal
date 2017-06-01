@@ -5,11 +5,14 @@ const mongoose = require('mongoose');
 const port = 5000;
 const airports = require('./api/airports/airports.model');
 const hotels = require('./api/hotels/hotels.model');
+const config = require('config');
+
+let dbConfig = config.get('Customer.dbConfig')
 
 mongoose.Promise = require('bluebird');
 
 //Connect to mongodb
-mongoose.connect('mongodb://localhost/TP-DB')
+mongoose.connect(dbConfig)
 //connection and error checking
 .then(
     (success) =>{

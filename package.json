@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/khurrumqureshi/test-portal/issues"
   },
-  "homepage": "https://github.com/khurrumqureshi/test-portal#readme"
+  "homepage": "https://github.com/khurrumqureshi/test-portal#readme",
+  "devDependencies": {
+    "config": "^1.26.1"
+  }
 }
