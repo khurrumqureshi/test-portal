@@ -6,8 +6,8 @@ exports.search = (req, res, next) => {
     var search = req.query.data;
 
     if (search.length <= 2) {
-        next(boom.badImplementation("Please provide atleast 3 letters to search"));
-    } else {
+       return next(boom.badImplementation("Please provide atleast 3 letters to search"));
+    } 
         Hotels.find({
                 name: {
                     $regex: search,
@@ -16,13 +16,12 @@ exports.search = (req, res, next) => {
             })
             .then((data) => {
                 if (data.length === 0) {
-                    next(boom.forbidden('No such hotels found with this keyword found'));
-                } else {
+                   return next(boom.forbidden('No such hotels found with this keyword found'));
+                }  
                     res.send(data)
-                }
             })
             .catch((err) => {
                 next(boom.forbidden('No database connectivity found'));
             })
-    }
+    
 };
