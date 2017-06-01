@@ -5,21 +5,22 @@ const boom = require('boom');
 exports.search = (req, res, next) => {
 
     let search = req.query.data;
+    let search2 = req.query.data2;
 
     if (search.length <= 2) {
-        next(boom.badImplementation("Please provide atleast 3 letters to search"));
-    } else {
+       return next(boom.badImplementation("Please provide atleast 3 letters to search"));
+    } 
 
-        Airports.find({name: {$regex: search,$options: 'i'}})
+        Airports.find({name: {$regex: search,$options: 'i'}, iata:{$regex: search2,$options: 'i'} })
 
             .then((doc) => {
                 if (doc.length === 0) {
 
-                    next(boom.badImplementation("no such airport with keyword " + search + " found"));
+                    return next(boom.badImplementation("no such airport with keyword " + search + " found"));
                 }
-                else {
+                
                 res.send(doc);
-                }
+               
             })
             .catch((err) => {
 
@@ -27,7 +28,7 @@ exports.search = (req, res, next) => {
 
             });
 
-    }
+
 
 };
 
