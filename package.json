@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/khurrumqureshi/test-portal/issues"
   },
-  "homepage": "https://github.com/khurrumqureshi/test-portal#readme"
+  "homepage": "https://github.com/khurrumqureshi/test-portal#readme",
+  "devDependencies": {
+    "gulp-nodemon": "^2.2.1"
+  }
 }
