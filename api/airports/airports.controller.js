@@ -7,7 +7,7 @@ exports.search = (req, res, next) => {
     let search = req.query.data;
     let search2 = req.query.data2;
 
-    if (search.length <= 2) {
+    if (search.length <= 2 || search2.length <= 2) {
        return next(boom.badImplementation("Please provide atleast 3 letters to search"));
     } 
 
