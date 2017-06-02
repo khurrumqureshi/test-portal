@@ -6,9 +6,6 @@ const airports = require('./api/airports/airports.model');
 const hotels = require('./api/hotels/hotels.model');
 let config = require('config');
 
-console.log(config.get('port'));
-
-
 mongoose.Promise = require('bluebird');
 
 //Connect to mongodb
