@@ -8,7 +8,7 @@ exports.search = (req, res, next) => {
     let search2 = req.query.data2;
 
     if (search.length <= 2) {
-       return next(boom.badImplementation("Please provide atleast 3 letters to search"));
+       return next(boom.badImplementation("Please provi atleast 3 letters to search"));
     } 
 
         Airports.find({name: {$regex: search,$options: 'i'}, iata:{$regex: search2,$options: 'i'} })
