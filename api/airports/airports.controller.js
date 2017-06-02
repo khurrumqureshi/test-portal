@@ -5,13 +5,13 @@ const boom = require('boom');
 exports.search = (req, res, next) => {
 
     let search = req.query.data;
-    let search2 = req.query.data2;
 
-    if (search.length <= 2 || search2.length <= 2) {
+
+    if (search.length <= 2) {
        return next(boom.badImplementation("Please provide atleast 3 letters to search"));
     } 
 
-        Airports.find({name: {$regex: search,$options: 'i'}, iata:{$regex: search2,$options: 'i'} })
+        Airports.find().or([{'name' : {$regex: search, $options: 'i'}}, {'iata': {$regex: search, $options: 'i'}}]).exec()
 
             .then((doc) => {
                 if (doc.length === 0) {
