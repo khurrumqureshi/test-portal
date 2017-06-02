@@ -1,0 +1,31 @@
+{
+  "name": "test-portal",
+  "version": "1.0.0",
+  "description": "its a portal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khurrumqureshi/test-portal.git"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.1",
+    "boom": "^4.3.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.6",
+    "mongoose-validator": "^1.2.5"
+  },
+  "keywords": [
+    "portal"
+  ],
+  "author": "Khurrum,Ahsan,Saad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khurrumqureshi/test-portal/issues"
+  },
+  "homepage": "https://github.com/khurrumqureshi/test-portal#readme"
+}
