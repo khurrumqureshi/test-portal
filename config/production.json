@@ -1,7 +1,5 @@
 {
-  "Customer": {
-    "mongo": {
-      "host": "mongodb://localhost/TP-DB"
-    }
-  }
+  "port": 6000,
+  "mongodb": "mongodb://localhost/TP-DB"
+ 
 }

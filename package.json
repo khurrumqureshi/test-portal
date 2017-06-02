@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "NODE_ENV=default & nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/khurrumqureshi/test-portal#readme",
   "devDependencies": {
-    "config": "^1.26.1"
+    "config": "^1.26.1",
+    "nodemon": "^1.11.0"
   }
 }

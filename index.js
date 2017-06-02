@@ -2,17 +2,17 @@ const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const port = 5000;
 const airports = require('./api/airports/airports.model');
 const hotels = require('./api/hotels/hotels.model');
-const config = require('config');
+let config = require('config');
 
-let dbConfig = config.get('Customer.dbConfig')
+console.log(config.get('port'));
+
 
 mongoose.Promise = require('bluebird');
 
 //Connect to mongodb
-mongoose.connect(dbConfig)
+mongoose.connect(config.get('mongodb'))
 //connection and error checking
 .then(
     (success) =>{
@@ -31,8 +31,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 app.use('/api', require('./api'));
 
-app.listen(port, () => {
-    console.log(`Running server on ${port}`);
+app.listen(config.get('port'), () => {
+    console.log(`Running server on ${config.get('port')}`);
 });
 
 app.use((err, req, res,next) => {

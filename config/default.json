@@ -1,10 +1,5 @@
 {
-  // Customer module configs 
-  "Customer": {
-    "mongo": {
-      "host": "localhost",
-      "port": 27017,
-      "dbName": "TP-DB"
-    }
-  }
+       "port": 5000,
+        "mongodb": "mongodb://localhost/TP-DB"
+
 }
