@@ -4,12 +4,12 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const airports = require('./api/airports/airports.model');
 const hotels = require('./api/hotels/hotels.model');
-let config = require('config');
+require('dotenv').config({path: './config/.env.default'})
 
 mongoose.Promise = require('bluebird');
 
 //Connect to mongodb
-mongoose.connect(config.get('mongodb'))
+mongoose.connect(process.env.MONGODB)
 //connection and error checking
 .then(
     (success) =>{
@@ -28,11 +28,10 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 app.use('/api', require('./api'));
 
-app.listen(config.get('port'), () => {
-    console.log(`Running server on ${config.get('port')}`);
+app.listen(process.env.PORT , () => {
+    console.log(`Running server on ${process.env.PORT}`);
 });
 
 app.use((err, req, res,next) => {
-    //res.send(err);
     res.status(err.output.payload.statusCode).send(err.message);
 });
