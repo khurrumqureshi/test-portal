@@ -4,9 +4,13 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const airports = require('./api/airports/airports.model');
 const hotels = require('./api/hotels/hotels.model');
-require('dotenv').config({path: './config/.env.default'})
+require('dotenv').config();
 
 mongoose.Promise = require('bluebird');
+
+console.log(process.env.PORT);
+
+
 
 //Connect to mongodb
 mongoose.connect(process.env.MONGODB)
