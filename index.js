@@ -4,11 +4,14 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const airports = require('./api/airports/airports.model');
 const hotels = require('./api/hotels/hotels.model');
+
+let config =  require('config');
 require('dotenv').config();
+
 
 mongoose.Promise = require('bluebird');
 
-console.log(process.env.PORT);
+console.log(config.get(PORT));
 
 
 
@@ -32,8 +35,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 app.use('/api', require('./api'));
 
-app.listen(process.env.PORT , () => {
-    console.log(`Running server on ${process.env.PORT}`);
+app.listen(config.get(PORT) , () => {
+    console.log(`Running server on ${config.get(PORT)}`);
 });
 
 app.use((err, req, res,next) => {
