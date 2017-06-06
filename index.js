@@ -2,12 +2,14 @@ const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const gulp = require('gulp');
-const nodemon = require('gulp-nodemon');
+const path = require('path');
+// Load .env file
+require('dotenv').load({
+    path: path.join(__dirname, '/.env'),
+    silent: true
+});
 const config = require('config');
-require('dotenv').config();
 mongoose.Promise = require('bluebird');
-
 
 //Connect to mongodb
 mongoose.connect(config.get('mongodb'))
