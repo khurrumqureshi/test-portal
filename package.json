@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "bluebird": "^3.5.0",
+    "dotenv": "^4.0.0",
     "body-parser": "^1.17.1",
     "boom": "^4.3.1",
     "config": "^1.26.1",
@@ -32,9 +33,5 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1"
-  }
-  "homepage": "https://github.com/khurrumqureshi/test-portal#readme",
-  "devDependencies": {
-    "dotenv": "^4.0.0"
   }
 }

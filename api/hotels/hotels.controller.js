@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Hotels = mongoose.model('hotels');
+const Hotels = require('./api/hotels/hotels.model');
 const boom = require('boom');
 
 exports.search = (req, res, next) => {
