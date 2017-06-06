@@ -1,6 +1,5 @@
-const mongoose = require('mongoose');
-const Hotels = mongoose.model('hotels');
-const Boom = require('boom');
+const Hotels = require('./hotels.model');
+const boom = require('boom');
 
 // Create Operation
 exports.createHotel = (req, res, next) => {

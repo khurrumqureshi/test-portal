@@ -1,19 +1,16 @@
 const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
-const port = 5000;
 const mongoose = require('mongoose');
-const airports = require('./api/airports/airports.model');
-const hotels = require('./api/hotels/hotels.model');
-
-let config =  require('config');
+const gulp = require('gulp');
+const nodemon = require('gulp-nodemon');
+const config = require('config');
 require('dotenv').config();
-
-
 mongoose.Promise = require('bluebird');
 
+
 //Connect to mongodb
-mongoose.connect("mongodb://localhost/TP-DB")
+mongoose.connect(config.get('mongodb'))
 //connection and error checking
 .then(
     (success) =>{
@@ -32,8 +29,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 app.use('/api', require('./api'));
 
-app.listen(port , () => {
-    console.log(`Running server on ${port}`);
+app.listen(config.get('port') , () => {
+    console.log(`Running server on ${config.get('port')}`);
 });
 
 app.use((err, req, res,next) => {

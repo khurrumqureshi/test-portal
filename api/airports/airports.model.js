@@ -10,7 +10,6 @@ let airport_data = new Schema({
     continent_name: { type: String    },
     region_name: { type: String    },
     priority: { type: Number   },
-    main_city_code: { type: String    },
     main_city_code: { type: String    }
 
 });
