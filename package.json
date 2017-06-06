@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/khurrumqureshi/test-portal#readme",
   "devDependencies": {
+    "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1"
   }
 }

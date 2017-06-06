@@ -8,7 +8,7 @@ exports.search = (req, res, next) => {
 
 
     if (search.length <= 2) {
-       return next(boom.badImplementation("Please provide atleast 3 letters to search"));
+       return next(boom.badImplementation("Please provi atleast 3 letters to search"));
     } 
 
         Airports.find().or([{'name' : {$regex: search, $options: 'i'}}, {'iata': {$regex: search, $options: 'i'}}]).exec()
@@ -18,7 +18,7 @@ exports.search = (req, res, next) => {
 
                     return next(boom.badImplementation("no such airport with keyword " + search + " found"));
                 }
-                
+    
                 res.send(doc);
                
             })
