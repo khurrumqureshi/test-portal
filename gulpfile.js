@@ -2,9 +2,12 @@ let nodemon =  require('gulp-nodemon');
 const gulp = require('gulp');
 
 
-gulp.task('default', function () {
+gulp.task('default', () => {
   nodemon({
-    script: 'index.js'
-}),
-console.log("In gulpfile.js");
+    script: 'index.js',
+    ext: 'js',
+    ignore: 'node_modules/'
+
+})
+
 });
