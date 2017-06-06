@@ -3,9 +3,8 @@ const airports = require('./airports.controller');
 
 router.get('/search', airports.search);
 router.post('/create', airports.createAirPort);
-router.post('/hello', (req, res ) => {
-
-    res.send("hello wqorld");
-});
+router.get('/read', airports.readAirport);
+router.put('/update/:airID', airports.updateAirport);
+router.delete('/delete', airports.deleteAirport);
 
 module.exports = router;
