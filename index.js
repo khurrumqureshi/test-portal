@@ -4,9 +4,12 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const airports = require('./api/airports/airports.model');
 const hotels = require('./api/hotels/hotels.model');
+const gulp = require('gulp');
+const nodemon = require('gulp-nodemon');
 const config = require('config');
 require('dotenv').config();
 mongoose.Promise = require('bluebird');
+
 
 //Connect to mongodb
 mongoose.connect(config.get('mongodb'))
