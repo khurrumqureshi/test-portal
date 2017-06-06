@@ -1,4 +1,4 @@
-const Airports = require('./api/airports/airports.model');
+const Airports = require('./airports.model');
 const boom = require('boom');
 
 exports.search = (req, res, next) => {

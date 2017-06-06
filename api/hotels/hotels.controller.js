@@ -1,4 +1,4 @@
-const Hotels = require('./api/hotels/hotels.model');
+const Hotels = require('./hotels.model');
 const boom = require('boom');
 
 exports.search = (req, res, next) => {
