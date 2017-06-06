@@ -1,4 +1,4 @@
 {
       "port": 6000,
-      "MONGODB_URL": "mongodb://localhost/TP-DB"
+      "mongodb": "mongodb://localhost/TP-DB"
 }

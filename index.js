@@ -5,16 +5,11 @@ const mongoose = require('mongoose');
 const airports = require('./api/airports/airports.model');
 const hotels = require('./api/hotels/hotels.model');
 const config = require('config');
-
 require('dotenv').config();
-
-
 mongoose.Promise = require('bluebird');
 
-console.log(config.util.getEnv());
-
 //Connect to mongodb
-mongoose.connect(config.get(mongodb))
+mongoose.connect(config.get('mongodb'))
 //connection and error checking
 .then(
     (success) =>{
@@ -33,8 +28,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 app.use('/api', require('./api'));
 
-app.listen(config.get(port) , () => {
-    console.log(`Running server on ${config.get(port)}`);
+app.listen(config.get('port') , () => {
+    console.log(`Running server on ${config.get('port')}`);
 });
 
 app.use((err, req, res,next) => {
