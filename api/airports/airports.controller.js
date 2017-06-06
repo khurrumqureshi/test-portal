@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Airports = mongoose.model('airports');
+const Airports = require('./api/airports/airports.model');
 const boom = require('boom');
 
 exports.search = (req, res, next) => {
