@@ -1,6 +1,13 @@
 const mongoose = require('mongoose');
 const Hotels = mongoose.model('hotels');
 const boom = require('boom');
+const Datastore = require('nedb'), db = new Datastore({ filename: 'hotel_data.json' });
+
+db.loadDatabase((err) => {
+        if(!err){
+            console.log("Database loaded");
+        }
+    });   
 
 exports.search = (req, res, next) => {
     var search = req.query.data;
@@ -24,4 +31,10 @@ exports.search = (req, res, next) => {
                 next(boom.forbidden('No database connectivity found'));
             })
     
+};
+
+exports.searchfs = (req, res, next) => {
+    
+        res.send(db);
+
 };
