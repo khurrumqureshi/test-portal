@@ -1,13 +1,11 @@
 const mongoose = require('mongoose');
 const Hotels = mongoose.model('hotels');
 const boom = require('boom');
-const Datastore = require('nedb'), db = new Datastore({ filename: 'hotel_data.json' });
+let fs = require('fs');
+var fsdata  ;
+const Datastore = require('nedb');
 
-db.loadDatabase((err) => {
-        if(!err){
-            console.log("Database loaded");
-        }
-    });   
+
 
 exports.search = (req, res, next) => {
     var search = req.query.data;
@@ -34,7 +32,25 @@ exports.search = (req, res, next) => {
 };
 
 exports.searchfs = (req, res, next) => {
-    
-        res.send(db);
+let reqdata = req.query.data;
+
+    fsdata = JSON.parse(fs.readFileSync('hotel_data.json', 'utf8'));
+
+     var arrFound = fsdata.filter(function(item) {
+        
+  return item.payment.paymentMethod === reqdata;
+  
+});
+
+         console.log(arrFound.length);
+
+
+res.send(arrFound);
+
+
+
+//     let db = new Datastore( );
+
+//    res.send(JSON.stringify(db));
 
 };
