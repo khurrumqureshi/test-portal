@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const port = 5000;
 const airports = require('./api/airports/airports.model');
-const hotels = require('./api/hotels/hotels.model');
 
 mongoose.Promise = require('bluebird');
 
@@ -32,6 +31,6 @@ app.listen(port, () => {
     console.log(`Running server on ${port}`);
 });
 
-app.use((err, req, res,next) => {
-    res.status(err.output.payload.statusCode).send(err.message);
-});
+// app.use((err, req, res,next) => {
+//     res.status(err.output.payload.statusCode).send(err.message);
+// });
