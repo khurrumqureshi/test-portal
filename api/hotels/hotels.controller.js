@@ -1,56 +1,26 @@
 const mongoose = require('mongoose');
 const Hotels = mongoose.model('hotels');
 const boom = require('boom');
-let fs = require('fs');
-var fsdata  ;
-const Datastore = require('nedb');
+let data = require("../../hotel_data.json");
+let _ = require('lodash');
 
+exports.searchfilter = (req, res, next) => {
 
+    let input = req.query.input,
+         input2 = req.query.input2
+          input3 = req.query.input3;
+          input4 = req.query.input4;
+          input5 = req.query.input5;
 
-exports.search = (req, res, next) => {
-    var search = req.query.data;
-
-    if (search.length <= 2) {
-       return next(boom.badImplementation("Please provide atleast 3 letters to search"));
-    } 
-        Hotels.find({
-                name: {
-                    $regex: search,
-                    $options: 'i'
-                }
-            })
-            .then((data) => {
-                if (data.length === 0) {
-                   return next(boom.forbidden('No such hotels found with this keyword found'));
-                }  
-                    res.send(data)
-            })
-            .catch((err) => {
-                next(boom.forbidden('No database connectivity found'));
-            })
-    
-};
-
-exports.searchfs = (req, res, next) => {
-let reqdata = req.query.data;
-
-    fsdata = JSON.parse(fs.readFileSync('hotel_data.json', 'utf8'));
-
-     var arrFound = fsdata.filter(function(item) {
-        
-  return item.payment.paymentMethod === reqdata;
-  
+     var arrFound=  _.filter(data, (DATA) => {
+  return (DATA.statusText == input) && ||
+         DATA.paymentStatusText == input2 ||
+         DATA.payment.paymentMethod == input3 ;
+        //  DATA.contact.email == input4 &&
+        //  DATA.payment.type == input5;
 });
-
-         console.log(arrFound.length);
-
 
 res.send(arrFound);
 
-
-
-//     let db = new Datastore( );
-
-//    res.send(JSON.stringify(db));
 
 };
