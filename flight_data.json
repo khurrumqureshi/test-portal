@@ -1362,7 +1362,7 @@
         "productMeta": [],
         "ahsGroupName": "Tajawal Web",
         "statusText": "Auto Confirmed",
-        "paymentStatusText": "ahsan",
+        "paymentStatusText": null,
         "markup": null
       }
     ],

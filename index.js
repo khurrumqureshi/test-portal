@@ -1,25 +1,9 @@
 const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
 const port = 5000;
 const airports = require('./api/airports/airports.model');
 
-mongoose.Promise = require('bluebird');
-
-//Connect to mongodb
-mongoose.connect('mongodb://localhost/TP-DB')
-//connection and error checking
-.then(
-    (success) =>{
-        console.log("Connection has been made");
-    }
-)
-.catch(
-    (error) => {
-        console.log("Connection Error:",error)
-    }
-);
 
 //body parser middleware
 app.use(bodyParser.json()); // support json encoded bodies
