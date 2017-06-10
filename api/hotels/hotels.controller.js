@@ -13,9 +13,10 @@ exports.searchfilter = (req, res, next) => {
           input5 = req.query.input5;
 
      var arrFound=  _.filter(data, (DATA) => {
-  return (DATA.statusText == input) && ||
-         DATA.paymentStatusText == input2 ||
-         DATA.payment.paymentMethod == input3 ;
+       return (DATA.statusText == input || null ) && 
+       ( DATA.paymentStatusText == input2 || null ) && 
+        ( DATA.payment.paymentMethod == input3 || null );
+   
         //  DATA.contact.email == input4 &&
         //  DATA.payment.type == input5;
 });
