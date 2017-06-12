@@ -6,22 +6,42 @@ let _ = require('lodash');
 
 exports.searchfilter = (req, res, next) => {
 
-    let input = req.query.input,
-         input2 = req.query.input2
-          input3 = req.query.input3;
-          input4 = req.query.input4;
-          input5 = req.query.input5;
+    let input = req.query.input;
+        //  input2 = req.query.input2
+        //   input3 = req.query.input3;
+        //   input4 = req.query.input4;
+        //   input5 = req.query.input5;
 
-     var arrFound=  _.filter(data, (DATA) => {
-       return (DATA.statusText == input || null ) && 
-       ( DATA.paymentStatusText == input2 || null ) && 
-        ( DATA.payment.paymentMethod == input3 || null );
-   
-        //  DATA.contact.email == input4 &&
-        //  DATA.payment.type == input5;
-});
+    switch (input)
+   {
+       case DATA.statusText:
+            return input == DATA.statusText;
 
-res.send(arrFound);
+       case DATA.payment.paymentMethod: 
+          return input == DATA.payment.paymentMethod;
 
+       case DATA.paymentStatusText: 
+          return input == DATA.paymentStatusText;
+
+       case DATA.contact.email: 
+          return input == DATA.contact.email;  
+
+      case DATA.payment.type : 
+          return input == DATA.payment.type ;  
+
+      default: 
+          DATA
+      
+            
+     }
+
+//      let arrFound = _.filter(data, (DATA) => {
+
+    
+
+
+// });
+
+res.send(input);
 
 };
