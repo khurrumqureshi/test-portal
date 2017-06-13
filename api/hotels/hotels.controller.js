@@ -6,34 +6,46 @@ let _ = require('lodash');
 
 exports.searchfilter = (req, res, next) => {
 
-    let input = req.query.input;
-        //  input2 = req.query.input2
-        //   input3 = req.query.input3;
-        //   input4 = req.query.input4;
-        //   input5 = req.query.input5;
+    let input =  req.query.input1;
+    //       input1 : req.query.input1,
+    //      input2 : req.query.input2,
+    //       input3 : req.query.input3,
+    //       input4 : req.query.input4,
+    //       input5 : req.query.input5,
+    // };
 
-    switch (input)
-   {
-       case DATA.statusText:
-            return input == DATA.statusText;
+        _.forEach(data,(value)=>{
+            res.json(value);
 
-       case DATA.payment.paymentMethod: 
-          return input == DATA.payment.paymentMethod;
+        })
 
-       case DATA.paymentStatusText: 
-          return input == DATA.paymentStatusText;
+  //   switch (input)
+  //  {
+  //      case data.statusText:
+      
+  //          return console.log(  "in input 1");
+          
+  //      case data.payment.paymentMethod: 
+  //         // return input == DATA.payment.paymentMethod;
+  //         return console.log(  "in input 2");
 
-       case DATA.contact.email: 
-          return input == DATA.contact.email;  
+  //      case data.paymentStatusText: 
+  //         // return input == DATA.paymentStatusText;
+  //         return console.log(  "in input 3");
 
-      case DATA.payment.type : 
-          return input == DATA.payment.type ;  
+  //      case data.contact.email: 
+  //         // return input == DATA.contact.email;  
+  //         return console.log(  "in input 4");
 
-      default: 
-          DATA
+  //     case data.payment.type : 
+  //         // return input == DATA.payment.type ;  
+  //         return console.log(  "in input 5");
+
+  //     default: 
+  //         data
       
             
-     }
+  //    }
 
 //      let arrFound = _.filter(data, (DATA) => {
 
@@ -41,7 +53,4 @@ exports.searchfilter = (req, res, next) => {
 
 
 // });
-
-res.send(input);
-
 };
