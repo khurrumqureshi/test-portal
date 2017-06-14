@@ -10,16 +10,16 @@ exports.searchfilter = (req, res, next) => {
     var shouldFilter = !map.paymentMethod && !map.paymentStatusText;
 
     let newItems = [];
-    if(shouldFilter){
+    if(!shouldFilter){
         data.map(hotel => {
-            hotel._paymentMethod = !map.paymentMethod || map.paymentMethod == hotel.payment.paymentMethod;
-            hotel._paymentStatusText = !map.paymentStatusText || map.paymentStatusText == hotel.paymentStatusText;
+            hotel._paymentMethod = !map.paymentMethod || _.toLower(map.paymentMethod) == _.toLower(hotel.payment.paymentMethod);
+            hotel._paymentStatusText = !map.paymentStatusText || _.toLower(map.paymentStatusText) == _.toLower(hotel.paymentStatusText);
 
             hotel._visible = hotel._paymentMethod && hotel._paymentStatusText;
             if(hotel._visible) newItems.push(hotel);
         });
 
-        return newItems;
+        res.send(newItems);
     }
     else{
         res.send(data);
