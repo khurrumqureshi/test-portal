@@ -6,51 +6,22 @@ let _ = require('lodash');
 
 exports.searchfilter = (req, res, next) => {
 
-    let input =  req.query.input1;
-    //       input1 : req.query.input1,
-    //      input2 : req.query.input2,
-    //       input3 : req.query.input3,
-    //       input4 : req.query.input4,
-    //       input5 : req.query.input5,
-    // };
+    var map = req.query;
+    var shouldFilter = !map.paymentMethod && !map.paymentStatusText;
 
-        _.forEach(data,(value)=>{
-            res.json(value);
+    let newItems = [];
+    if(shouldFilter){
+        data.map(hotel => {
+            hotel._paymentMethod = !map.paymentMethod || map.paymentMethod == hotel.payment.paymentMethod;
+            hotel._paymentStatusText = !map.paymentStatusText || map.paymentStatusText == hotel.paymentStatusText;
 
-        })
+            hotel._visible = hotel._paymentMethod && hotel._paymentStatusText;
+            if(hotel._visible) newItems.push(hotel);
+        });
 
-  //   switch (input)
-  //  {
-  //      case data.statusText:
-      
-  //          return console.log(  "in input 1");
-          
-  //      case data.payment.paymentMethod: 
-  //         // return input == DATA.payment.paymentMethod;
-  //         return console.log(  "in input 2");
-
-  //      case data.paymentStatusText: 
-  //         // return input == DATA.paymentStatusText;
-  //         return console.log(  "in input 3");
-
-  //      case data.contact.email: 
-  //         // return input == DATA.contact.email;  
-  //         return console.log(  "in input 4");
-
-  //     case data.payment.type : 
-  //         // return input == DATA.payment.type ;  
-  //         return console.log(  "in input 5");
-
-  //     default: 
-  //         data
-      
-            
-  //    }
-
-//      let arrFound = _.filter(data, (DATA) => {
-
-    
-
-
-// });
+        return newItems;
+    }
+    else{
+        res.send(data);
+    }
 };
