@@ -1,6 +1,3 @@
-const mongoose = require('mongoose');
-const Hotels = mongoose.model('hotels');
-const boom = require('boom');
 let data = require("../../hotel_data.json");
 let _ = require('lodash');
 
