@@ -1,12 +1,8 @@
 const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const port = 5000;
-const airports = require('./api/airports/airports.model');
 const hotels = require('./api/hotels/hotels.model');
-
-mongoose.Promise = require('bluebird');
+const port = 5000;
 
 //body parser middleware
 app.use(bodyParser.json()); // support json encoded bodies
