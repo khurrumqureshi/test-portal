@@ -5,22 +5,23 @@ exports.sorting = (req, res, next) => {
 
 let input = req.query.input;
 
-  if(input == "total") {
+//   if(input == "total") {
+
+//  let aarfound = _.sortBy(data, [(o) => {
+
+//     return o.totals.total;
+//    }]);
+
+//   res.send(aarfound);
+// }
+
+ if(input == "rating") {
 
  let aarfound = _.sortBy(data, [(o) => {
 
-    return o.totals.total;
+    return o.products;
    }]);
-
-  res.send(aarfound);
-}
-
-if(input == "total") {
-
- let aarfound = _.sortBy(data, [(o) => {
-
-    return o.totals.total;
-   }]);
+   console.log(o.products);
 
   res.send(aarfound);
   }
