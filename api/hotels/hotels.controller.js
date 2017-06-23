@@ -3,15 +3,16 @@ let data = require("../../hotel_data.json");
 
     exports.sorting = (req, res, next) => {
 
+    let  newItem = [];
     let sortInput = req.query;
 
     if(sortInput.query == "total") {
-    let arrfound = _.sortBy(data, [(o) => {
+    let arrfound = _.sortBy(data, [(hotel) => {
         if(sortInput.dir == "DESC") {
-            return -(o.totals.total);
+            return -(hotel.totals.total);
         }
         else {
-        return o.totals.total;
+        return hotel.totals.total;
         }
     }]);
     
@@ -19,10 +20,7 @@ let data = require("../../hotel_data.json");
     }
 
     if(sortInput.query == "rating") {
-        for(let i=0; i< data.length; i++){
-            console.log(data[i].products)
-        }
-      
-}
-  
-};
+       console.log( _.sort(data, {products: [{options: { starRating: }}]}));
+
+         
+    }}
