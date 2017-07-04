@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
 const port = 5000;
-const airports = require('./api/airports/airports.model');
 
 
 //body parser middleware
