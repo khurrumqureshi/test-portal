@@ -1485,7 +1485,7 @@
           "supplierFirstCancellationDate": null
         },
         "status": 58,
-        "vendorStatus": "Manually Ordered",
+        "vendorStatus": "58",
         "type": "rule",
         "category": "rule",
         "code": "service fee",
@@ -2025,7 +2025,7 @@
           "supplierFirstCancellationDate": null
         },
         "status": 58,
-        "vendorStatus": "Pending",
+        "vendorStatus": "58",
         "type": "rule",
         "category": "rule",
         "code": "service fee",
@@ -4197,7 +4197,7 @@
           "supplierFirstCancellationDate": null
         },
         "status": 58,
-        "vendorStatus": "Manually Ordered",
+        "vendorStatus": "58",
         "type": "rule",
         "category": "rule",
         "code": "service fee",
@@ -7633,7 +7633,7 @@
           "supplierFirstCancellationDate": null
         },
         "status": 58,
-        "vendorStatus": "Pending",
+        "vendorStatus": "58",
         "type": "rule",
         "category": "rule",
         "code": "service fee",
@@ -8099,7 +8099,7 @@
           "supplierFirstCancellationDate": null
         },
         "status": 58,
-        "vendorStatus": "Manually Ordered",
+        "vendorStatus": "58",
         "type": "rule",
         "category": "rule",
         "code": "service fee",
@@ -9169,7 +9169,7 @@
           "supplierFirstCancellationDate": null
         },
         "status": 58,
-        "vendorStatus": "Failed",
+        "vendorStatus": "58",
         "type": "rule",
         "category": "rule",
         "code": "service fee",

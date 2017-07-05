@@ -1,10 +1,9 @@
 let data = require("../../flight_data.json");
 let _ = require('lodash');
 
-
 exports.sorting = (req, res, next) => {
+
     let sortInput = req.query;
-    
 
     if (sortInput) {
         return res.send(data);
@@ -21,14 +20,19 @@ exports.sorting = (req, res, next) => {
 
             }
             return a.totals.total;
-        } else if (sortInput.query == "vendorstatus") {
+        } 
+        
+        else if (sortInput.query == "vendorStatus") {
             if (sortInput.dir == "desc") {
                 return -(productA.vendorStatus);
 
             }
 
-            return productA.vendorStatus;
-        } else if (sortInput.query == "officeiId") {
+            return productA.options.starRating;
+
+        } 
+        
+        else if (sortInput.query == "officeId") {
             if (sortInput.dir == "desc") {
                 return -(productA.additionalData.officeId);
             }
@@ -38,8 +42,5 @@ exports.sorting = (req, res, next) => {
     }]);
 
     res.send(arr);
-    
 
-
-};
-
+}
