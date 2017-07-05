@@ -12,32 +12,28 @@ exports.sorting = (req, res, next) => {
         var productA = _.find(a.products);
 
         if (sortInput.query == "total") {
-            if (sortInput.dir == "desc") {
-                return -(a.totals.total);
-
-            }
+        
             return a.totals.total;
         } 
         
         else if (sortInput.query == "vendorStatus") {
-            if (sortInput.dir == "desc") {
-                return -(productA.vendorStatus);
-
-            }
-
-            return productA.vendorStatus;
-
-        } 
-        
+    
+        return productA.vendorStatus;
+        }
         else if (sortInput.query == "officeId") {
-            if (sortInput.dir == "desc") {
-                return -(productA.additionalData.officeId);
-            }
+    
 
             return productA.additionalData.officeId;
         }
     }]);
 
-    res.send(arr);
+        if (sortInput.dir == "desc") {
+            
+         arr.reverse();
 
+        } 
+
+   
+      res.send(arr);
+     
 }
