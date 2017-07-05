@@ -5,10 +5,7 @@ exports.sorting = (req, res, next) => {
 
     let sortInput = req.query;
 
-    if (sortInput) {
-        return res.send(data);
-    }
-
+    
     let arr = _.sortBy(data, [(a) => {
 
 
@@ -28,7 +25,7 @@ exports.sorting = (req, res, next) => {
 
             }
 
-            return productA.options.starRating;
+            return productA.vendorStatus;
 
         } 
         

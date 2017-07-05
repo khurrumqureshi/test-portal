@@ -1,6 +1,6 @@
 var router = require('express').Router();
-const hotels = require('./hotels.controller');
+const airport = require('./airport.controller');
 
-router.get('/sort', hotels.sorting);
+router.get('/sort', airport.sorting);
 
 module.exports = router;
