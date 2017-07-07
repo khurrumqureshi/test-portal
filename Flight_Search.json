@@ -1,0 +1,79 @@
+[
+  {
+    "id_airport": 96132,
+    "iata": "DXB",
+    "name": "Dubai",
+    "continent_code": "AS",
+    "continent_name": "Asia",
+    "region_name": null,
+    "priority": 0,
+    "main_city_code": "DXB",
+    "main_city_name": "Dubai"
+  },
+  {
+    "id_airport": 85241,
+    "iata": "DXB",
+    "name": "Dubai International Airport",
+    "continent_code": "AS",
+    "continent_name": "Asia",
+    "region_name": "Middle East",
+    "priority": 0,
+    "main_city_code": "DXB",
+    "main_city_name": "Dubai"
+  },
+  {
+    "id_airport": 85188,
+    "iata": "DWC",
+    "name": "Dubai World Central - Al Maktoum International Airport",
+    "continent_code": "AS",
+    "continent_name": "Asia",
+    "region_name": "Middle East",
+    "priority": 0,
+    "main_city_code": "DXB",
+    "main_city_name": "Dubai"
+  },
+  {
+    "id_airport": 84727,
+    "iata": "XNB",
+    "name": "Dubai, United Arab Emirates (XNB-Dubai Bus Station)",
+    "continent_code": "AS",
+    "continent_name": "Asia",
+    "region_name": null,
+    "priority": 0,
+    "main_city_code": "DXB",
+    "main_city_name": "Dubai"
+  },
+  {
+    "id_airport": 84729,
+    "iata": "ZVJ",
+    "name": "Abu Dhabi, United Arab Emirates (ZVJ-Dubai Bus Station)",
+    "continent_code": "AS",
+    "continent_name": "Asia",
+    "region_name": null,
+    "priority": 0,
+    "main_city_code": "AUH",
+    "main_city_name": "Abu Dhabi"
+  },
+  {
+    "id_airport": 97847,
+    "iata": "KHI",
+    "name": "Karachi",
+    "continent_code": "AS",
+    "continent_name": "Asia",
+    "region_name": null,
+    "priority": 0,
+    "main_city_code": "KHI",
+    "main_city_name": "Karachi"
+  },
+  {
+    "id_airport": 88071,
+    "iata": "KHI",
+    "name": "Jinnah International Airport",
+    "continent_code": "AS",
+    "continent_name": "Asia",
+    "region_name": "Asia",
+    "priority": 0,
+    "main_city_code": "KHI",
+    "main_city_name": "Karachi"
+  }
+]
