@@ -1,34 +1,33 @@
 
 let data = require('../../Flight_Search.json');
-let user_data = require('../../user_data.json');
+let booking_data = require('../../booking_data.json');
 let _ = require("lodash");
 let fs = require("fs");
 
 
-  const newArray = [];
- exports.Booking = (req, res, next) => {
 
-    // let found = false;
-   let input =   _.toInteger(req.body.id_airport);
-   let arrFound =  _.find(data, {id_airport: input});
+exports.Booking = (req, res, next) => {
+    const FlightBooked = [];
 
-   let saad = fs.readFileSync('user_data.json');
- 
-  
-   let ahsan = _.toArray(saad);
-   ahsan.push(arrFound);
-       
-    let jadff = JSON.stringify(ahsan);
+    let CustomerDetails = (req.body);
+    let input = _.toInteger(req.query.id_airport);
+    let arrFound = _.find(data, { id_airport: input });
 
-     fs.appendFile('user_data.json',ahsan, (err) => {
-    
-    if(err) 
-    {
-        res.send(err)
-    }
-    else {  
 
-        res.send(user_data);
-    }
-  })
+    FlightBooked.push({ "AirportId": arrFound.id_airport, "AirportName": arrFound.name });
+
+    booking_data.push({ CustomerDetails, FlightBooked });
+
+
+    let str = JSON.stringify(booking_data);
+    fs.writeFile('booking_data.json', str, (err) => {
+
+        if (err) {
+            res.send(err)
+        }
+        else {
+
+            res.send(booking_data);
+        }
+    })
 }

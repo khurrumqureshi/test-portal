@@ -1,0 +1,86 @@
+[
+    {
+        "CustomerDetails": {
+            "Firstname": "shafin",
+            "Lastname": "Khan",
+            "ContactNo": "923363547693",
+            "NIC": "12345678"
+        },
+        "FlightBooked": [
+            {
+                "AirportId": 85188,
+                "AirportName": "Dubai World Central - Al Maktoum International Airport"
+            }
+        ]
+    },
+    {
+        "CustomerDetails": {
+            "Firstname": "Faizan",
+            "Lastname": "Ali",
+            "ContactNo": "923363547693",
+            "NIC": "12345678"
+        },
+        "FlightBooked": [
+            {
+                "AirportId": 85241,
+                "AirportName": "Dubai International Airport"
+            }
+        ]
+    },
+    {
+        "CustomerDetails": {
+            "Firstname": "Farooq",
+            "Lastname": "Ali",
+            "ContactNo": "923363547693",
+            "NIC": "12345678"
+        },
+        "FlightBooked": [
+            {
+                "AirportId": 96132,
+                "AirportName": "Dubai"
+            }
+        ]
+    },
+    {
+        "CustomerDetails": {
+            "Firstname": "Jameela",
+            "Lastname": "Ali",
+            "ContactNo": "923363547693",
+            "NIC": "12345678"
+        },
+        "FlightBooked": [
+            {
+                "AirportId": 85241,
+                "AirportName": "Dubai International Airport"
+            }
+        ]
+    },
+    {
+        "CustomerDetails": {
+            "Firstname": "Rukhsana",
+            "Lastname": "Ali",
+            "ContactNo": "923363547693",
+            "NIC": "12345678"
+        },
+        "FlightBooked": [
+            {
+                "AirportId": 85241,
+                "AirportName": "Dubai International Airport"
+            }
+        ]
+    },
+    {
+        "CustomerDetails": {
+            "Firstname": "Rukhsana",
+            "Lastname": "Ali",
+            "ContactNo": "923363547693",
+            "NIC": "12345678"
+        },
+        "FlightBooked": [
+            {
+                "AirportId": 85241,
+                "AirportName": "Dubai International Airport"
+            }
+        ]
+    }
+]
