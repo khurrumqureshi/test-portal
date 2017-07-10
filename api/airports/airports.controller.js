@@ -1,14 +1,55 @@
-let data = require('../../Flight_Search.json');
+let data = require("../../flight_data.json");
+let data2 = require('../../Flight_Search.json');
 let booking_data = require('../../booking_data.json');
 let _ = require("lodash");
 let fs = require("fs");
-let uuid = require("uuid/v4")
+let uuid = require("uuid/v4");
+
+
+
+exports.sorting = (req, res, next) => {
+
+    let sortInput = req.query;
+
+    
+    let arr = _.sortBy(data, [(a) => {
+
+
+        var productA = _.find(a.products);
+
+        if (sortInput.query == "total") {
+        
+            return a.totals.total;
+        } 
+        
+        else if (sortInput.query == "vendorStatus") {
+    
+        return productA.vendorStatus;
+        }
+        else if (sortInput.query == "officeId") {
+    
+
+            return productA.additionalData.officeId;
+        }
+    }]);
+
+        if (sortInput.dir == "desc") {
+            
+         arr.reverse();
+
+        } 
+
+   
+      res.send(arr);
+     
+}
+
 
 exports.Booking = (req, res, next) => {
 
     let CustomerDetails = req.body;
     let input = _.toInteger(req.query.id_airport);
-    let arrFound = _.find(data, { id_airport: input });
+    let arrFound = _.find(data2, { id_airport: input });
     CustomerDetails._id = uuid();
 
 
