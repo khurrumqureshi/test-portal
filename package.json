@@ -19,7 +19,8 @@
     "lodash": "^4.17.4",
     "mongoose": "^4.9.6",
     "mongoose-validator": "^1.2.5",
-    "nedb": "^1.8.0"
+    "nedb": "^1.8.0",
+    "shortid": "^2.2.8"
   },
   "keywords": [
     "portal"
