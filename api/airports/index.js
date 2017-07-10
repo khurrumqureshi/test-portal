@@ -1,8 +1,6 @@
 var router = require('express').Router();
-const airports = require('./airports.controller');
+const airport = require('./airports.controller');
 
-router.post('/book', airports.Booking);
 router.get('/sort', airport.sorting);
-
-
+router.post('/book', airports.Booking);
 module.exports = router;
