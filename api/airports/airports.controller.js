@@ -1,22 +1,27 @@
-
 let data = require('../../Flight_Search.json');
 let booking_data = require('../../booking_data.json');
 let _ = require("lodash");
 let fs = require("fs");
 
-
-
+let uuid = require("uuid/v4")
 exports.Booking = (req, res, next) => {
-    const FlightBooked = [];
-
-    let CustomerDetails = (req.body);
+    let CustomerDetails = req.body;
     let input = _.toInteger(req.query.id_airport);
     let arrFound = _.find(data, { id_airport: input });
+    CustomerDetails._id = uuid();
+    
 
 
-    FlightBooked.push({ "AirportId": arrFound.id_airport, "AirportName": arrFound.name });
+    if (!CustomerDetails.Firstname || !CustomerDetails.Lastname || !CustomerDetails.ContactNo || !CustomerDetails.NIC || !CustomerDetails.BookedFor) {
 
-    booking_data.push({ CustomerDetails, FlightBooked });
+        return res.send("Please fill out all the fields");
+    }
+    let AirportData = ({ "AirportId": arrFound.id_airport, "AirportName": arrFound.name });
+     
+      CustomerDetails.Flight = AirportData;
+    CustomerDetails.BookedFor = new Date(CustomerDetails.BookedFor);
+
+    booking_data.push(CustomerDetails);
 
 
     let str = JSON.stringify(booking_data);
@@ -27,7 +32,7 @@ exports.Booking = (req, res, next) => {
         }
         else {
 
-            res.send(booking_data);
+            res.send("Thanks ! " + CustomerDetails.Firstname + " your Flight to " + arrFound.name + " has been booked for " + CustomerDetails.BookedFor);
         }
     })
 }
