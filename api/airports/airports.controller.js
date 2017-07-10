@@ -2,9 +2,10 @@ let data = require('../../Flight_Search.json');
 let booking_data = require('../../booking_data.json');
 let _ = require("lodash");
 let fs = require("fs");
-
 let uuid = require("uuid/v4")
+
 exports.Booking = (req, res, next) => {
+
     let CustomerDetails = req.body;
     let input = _.toInteger(req.query.id_airport);
     let arrFound = _.find(data, { id_airport: input });
