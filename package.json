@@ -13,12 +13,11 @@
   },
   "dependencies": {
     "bluebird": "^3.5.0",
-    "body-parser": "^1.17.1",
+    "body-parser": "^1.17.2",
     "boom": "^4.3.1",
-    "express": "^4.15.2",
+    "express": "^4.15.3",
+    "json-stringify-safe": "^5.0.1",
     "lodash": "^4.17.4",
-    "mongoose": "^4.9.6",
-    "mongoose-validator": "^1.2.5",
     "nedb": "^1.8.0"
   },
   "keywords": [
