@@ -1,44 +1,40 @@
 let data = require("../../hotel_data.json");
+let booking_data = require("../../booking_data.json")
 let _ = require('lodash');
+let fs = require("fs");
+ var shortid = require('shortid');
 
-exports.sorting = (req, res, next) => {
+exports.booking = (req, res, next) => {
 
-    let newItem = [];
-    let sortInput = req.query;
+    let CustomerDetails = req.body;
+    let input = req.query.hotelId;
+    let arrFound = _.find(data, {
+        hotelId: input
+    });
+ 
 
-    if (sortInput) {
-        return res.send(data);
+    if (!CustomerDetails.FirstName || !CustomerDetails.LastName || !CustomerDetails.ContactNo || !CustomerDetails.NIC || !CustomerDetails.BookedFor) {
+        return res.send("Please fill out all fields");
     }
 
-    let arr = _.sortBy(data, [(a) => {
+    let HotelData = ({
+        "HotelId": arrFound.hotelId,
+        "HotelName": arrFound.name
+    });
+    CustomerDetails.Id = shortid.generate();
+    CustomerDetails.Hotel = HotelData;
+    CustomerDetails.BookedFor = new Date(CustomerDetails.BookedFor);
+    booking_data.push(CustomerDetails);
 
 
-        var productA = _.find(a.products, {
-            type: 'hotel'
-        });
+    let str = JSON.stringify(booking_data);
+    fs.writeFile('booking_data.json', str, (err) => {
 
-        if (sortInput.query == "total") {
-            if (sortInput.dir == "desc") {
-                return -(a.totals.total);
+        if (err) {
+            res.send(err)
+        } else {
 
-            }
-            return a.totals.total;
-        } else if (sortInput.query == "starrating") {
-            if (sortInput.dir == "desc") {
-                return -(productA.options.starRating);
-
-            }
-
-            return productA.options.starRating;
-        } else if (sortInput.query == "canceldate") {
-            if (sortInput.dir == "desc") {
-                return -(productA.options.firstCancellationDate);
-            }
-
-            return productA.options.firstCancellationDate;
+            res.send("Mr " + CustomerDetails.FirstName + " " + CustomerDetails.LastName + " Your hotel for " + arrFound.name + " is booked for the Date: " + CustomerDetails.BookedFor);
         }
-    }]);
-
-    res.send(arr);
-
+    })
 }
