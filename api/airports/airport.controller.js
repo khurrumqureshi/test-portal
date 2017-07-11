@@ -1,4 +1,5 @@
 let data = require("../../flight_data.json");
+
 let data2 = require('../../Flight_Search.json');
 let booking_data = require('../../booking_data.json');
 let _ = require("lodash");
@@ -40,6 +41,7 @@ exports.sorting = (req, res, next) => {
    
       res.send(arr);
      
+
 }
 exports.Booking = (req, res, next) => {
 
